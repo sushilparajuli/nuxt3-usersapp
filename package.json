@@ -20,8 +20,5 @@
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
-  },
-  "scripts": {
-    "commit": "cz"
   }
 }
