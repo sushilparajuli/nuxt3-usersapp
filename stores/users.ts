@@ -1,12 +1,19 @@
 import { acceptHMRUpdate, defineStore } from "pinia";
 import { User } from "@/types";
+// State for Users
 export const useUser = defineStore({
   id: "user",
   state: () => ({
     users: [] as User[],
     pending: true,
+    favs: new Set<number>(),
   }),
-  getters: {},
+  getters: {
+    favlist: (state) =>
+      state.users.filter((user) => {
+        return state.favs.has(user.id);
+      }),
+  },
   actions: {
     async fetchUsers(searchName: string) {
       this.pending = true;

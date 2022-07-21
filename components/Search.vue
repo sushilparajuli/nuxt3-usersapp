@@ -46,6 +46,8 @@
 import { watch } from 'vue'
 import { SearchIcon } from '@heroicons/vue/solid';
 import useDebouncedRef from '~/composables/useDebouncedRef'
+
+// using debouced event to emit for search
 const query = useDebouncedRef('', 400, false)
 const emit = defineEmits(["searchInput"]);
 watch(query, newQuery => {
